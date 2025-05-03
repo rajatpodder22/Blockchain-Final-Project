@@ -22,13 +22,10 @@
   },
   "homepage": "https://github.com/rajatpodder22/Blockchain-Final-Project#readme",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.23.0",
-    "hardhat-gas-reporter": "^2.2.3"
-  },
-  "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "dotenv": "^16.5.0",
-    "ethers": "^6.13.7"
+    "ethers": "^5.8.0",
+    "hardhat": "^2.23.0",
+    "hardhat-gas-reporter": "^2.2.3"
   }
 }
