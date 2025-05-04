@@ -40,7 +40,7 @@ async function main() {
         proofHexStrings.map(ethers.utils.arrayify)
     );
 
-    const pubSignals = ["1"]; // use string or BigNumber
+    const pubSignals = ["1"]; 
 
     const tx = await voting.castVote(concatenatedProof, pubSignals, { gasLimit: 5000000 });
     console.log("Vote submitted! TX hash:", tx.hash);
