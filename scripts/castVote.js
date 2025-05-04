@@ -2,7 +2,7 @@ const hre = require("hardhat");
 const { ethers } = hre;
 
 async function main() {
-    const votingContractAddress = "0x25eA20ca3197fBaF40c29B45e397A4dF8F66549F"; // replace with deployed address
+    const votingContractAddress = "0x25eA20ca3197fBaF40c29B45e397A4dF8F66549F"; //  deployed address
     const Voting = await hre.ethers.getContractFactory("Voting");
     const voting = Voting.attach(votingContractAddress);
 
