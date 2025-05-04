@@ -1,14 +1,14 @@
 const hre = require("hardhat");
+const { ethers } = hre;
 
 async function main() {
-    const votingContractAddress = "0x33b4bD30dF1361b7544251616968235034bcAb71"; 
+    const votingContractAddress = "0x25eA20ca3197fBaF40c29B45e397A4dF8F66549F"; // replace with deployed address
     const Voting = await hre.ethers.getContractFactory("Voting");
     const voting = Voting.attach(votingContractAddress);
 
     console.log("Submitting vote...");
 
-    // proof calldata and public signals from snarkjs
-    const proofCalldata = [
+    const proofHexStrings = [
         "0x03ef1a62e6541a139505f1603293ed45512b15753f744d164fbd9fac89c02138",
         "0x0207076d85f8df0fffe5add52d50d828e60ed521086ad49fae73cdb8a02dbf5e",
         "0x16847e039e1246520b3017c5f93fcda362d8909915322f2c64601055c25cbc44",
@@ -35,15 +35,18 @@ async function main() {
         "0x0611bad7228233eac95cd8f0a01aa7c992d45dfd8cdbfefb8e2c0d152532788e"
     ];
 
-    const publicSignals = ["0x0000000000000000000000000000000000000000000000000000000000000001"];
+    // Concatenate all proofs into a single Uint8Array
+    const concatenatedProof = ethers.utils.concat(
+        proofHexStrings.map(ethers.utils.arrayify)
+    );
 
-    const tx = await voting.vote(proofCalldata, publicSignals);
+    const pubSignals = ["1"]; // use string or BigNumber
+
+    const tx = await voting.castVote(concatenatedProof, pubSignals, { gasLimit: 5000000 });
     console.log("Vote submitted! TX hash:", tx.hash);
 
     const receipt = await tx.wait();
     console.log("Gas used:", receipt.gasUsed.toString());
-    console.log("Proof calldata size (elements):", proofCalldata.length);
-    console.log("Number of public signals:", publicSignals.length);
 }
 
 main().catch((error) => {

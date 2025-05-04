@@ -7,12 +7,13 @@ module.exports = {
   networks: {
     sepolia: {
       url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [`0x${process.env.PRIVATE_KEY}`], // ✅ added 0x prefix
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
+	  timeout: 120000,	  
     },
   },
   gasReporter: {
-    enabled: true,           // ✅ enables gas reporting
-    currency: 'USD',         // optional: output in USD
-    coinmarketcap: null,     // optional: set your API key if you want live pricing
+    enabled: true,           
+    currency: 'USD',         
+    coinmarketcap: null,     
   },
 };
