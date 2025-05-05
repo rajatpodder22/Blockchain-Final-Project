@@ -111,8 +111,6 @@ Example output:
 Submitting vote...
 Vote submitted! TX hash: 0x...
 Gas used: 4923355
-Proof calldata size: 24
-Number of public signals: 1
 ```
 
 These logs confirm proof verification and gas benchmarking.
@@ -121,14 +119,8 @@ These logs confirm proof verification and gas benchmarking.
 
 - Contract verifies ZK-SNARK proof
 - Circuit generates valid PLONK proof
-- Logs output gas used and calldata size for benchmarking
 - Focused on backend smart contract & circuit logic
 
-## References
-
-* [SnarkJS](https://github.com/iden3/snarkjs)
-* [Circom](https://docs.circom.io/)
-* [Ethereum Sepolia Testnet](https://sepolia.dev/)
 
 
 
