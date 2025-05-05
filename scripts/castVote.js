@@ -35,7 +35,7 @@ async function main() {
         "0x0611bad7228233eac95cd8f0a01aa7c992d45dfd8cdbfefb8e2c0d152532788e"
     ];
 
-    // Concatenate all proofs into a single Uint8Array
+    //  proofs into a single Uint8Array
     const concatenatedProof = ethers.utils.concat(
         proofHexStrings.map(ethers.utils.arrayify)
     );
